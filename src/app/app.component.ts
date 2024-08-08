@@ -1,0 +1,33 @@
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { UserComponent } from './user/user.component';
+import { ContactComponent } from './contact/contact.component';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, UserComponent, ContactComponent],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent implements OnInit, AfterViewInit {
+  name: string | null | 'Dcm' | 'Cmm' | number = null;
+
+  private _address: string = 'Vinhomes';
+  //thang chay dau tien
+  //DI
+  constructor() {
+    console.log('Tao la constructor');
+  }
+  //khi no duoc sinh ra
+  ngOnInit(): void {
+    console.log('Trong khu tao song');
+    setTimeout(() => {
+      this.name = 5;
+    }, 0);
+  }
+  //khi tao da duoc render ra thanh cong
+  ngAfterViewInit(): void {
+    console.warn('Trong khu vuc render ra template');
+  }
+}
