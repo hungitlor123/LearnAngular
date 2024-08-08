@@ -4,10 +4,10 @@ import { Component, OnInit } from '@angular/core';
   selector: 'user',
   standalone: true,
   templateUrl: './user.component.html',
-  // styleUrls: ['./name.component.scss']
+  styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
   constructor() {}
-
+  name: string = 'Tokuda Pro';
   ngOnInit(): void {}
 }

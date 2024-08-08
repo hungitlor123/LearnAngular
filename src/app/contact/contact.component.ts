@@ -6,10 +6,10 @@ import { UserComponent } from '../user/user.component';
   standalone: true,
   templateUrl: './contact.component.html',
   imports: [UserComponent],
-  // styleUrls: ['./name.component.scss']
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
   constructor() {}
-  name: string = 'Vai luon';
+  name: string = 'Dien vien';
   ngOnInit(): void {}
 }

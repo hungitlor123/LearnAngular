@@ -2,11 +2,12 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserComponent, ContactComponent],
+  imports: [RouterOutlet, UserComponent, ContactComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
