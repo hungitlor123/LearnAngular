@@ -1,15 +1,54 @@
-<h2>Thay ong noi</h2>
+User component
+<br />
 
-<div class="card">
-  <img
-    src="https://ttol.vietnamnetjsc.vn//2016/11/01/14/56/hinh-anh-doi-thuong-cua-dien-vien-jav-hon-80-tuoi-van-muon-dong-phim-nong-den-cuoi-doi_1.jpg"
-    alt="Avatar"
-    style="width: 100%"
-  />
-  <div class="container">
-    <h4>
-      <b>{{ name }}</b>
-    </h4>
-    <p>JAV pro</p>
-  </div>
+<input type="text" value="email" />
+<br />
+<!-- Binding data bang dau [] -->
+<input type="text" [value]="email" />
+<br />
+<!-- Binding data bang dau [] -->
+<input type="text" [(ngModel)]="student.name" />
+<br />
+<!-- Binding data bang dau [] -->
+<input type="text" [(ngModel)]="student.age" />
+<br />
+<!-- Binding data bang dau [] -->
+<input type="text" [(ngModel)]="student.address" />
+
+<!-- Evenbinding -->
+<button (click)="logEmailValue()">Show email</button>
+<br />
+<button (click)="toggleColor()">Color Toggle</button>
+
+@if(isBlue){
+<div [class]="[isBlue ? 'text-blue' : 'text-red']">
+  {{ email }}
 </div>
+} @else {
+<div [class]="[isBlue ? 'text-blue' : 'text-red']">Phan Van Hung</div>
+}
+
+<!-- Directive
+ if, else , for-->
+@for (student of students; track $index) {
+<div>
+  {{ $index + 1 }} - {{ student.name }} - {{ student.age }} -
+  {{ student.address || "Cutttttttt" }}
+</div>
+}
+<button (click)="addStudentToArray()">Add Student</button>
+
+<!-- ngif, ngfor -->
+<ng-container *ngIf="students.length > 0; else noStudent">
+  danh sach student
+</ng-container>
+<ng-template #noStudent> khong co student nao</ng-template>
+
+<br />
+<ng-container *ngFor="let student of students; index as i">
+  <div>{{ i + 1 }}</div>
+  <div>{{ student.name }}</div>
+  <div [class]="student.address ? 'text-blue' : 'text-red'">
+    {{ student.address || "khong co dia chi" }}
+  </div>
+</ng-container>
