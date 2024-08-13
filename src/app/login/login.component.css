@@ -84,3 +84,78 @@
 #createAccountBtn:hover {
   background: #34a61d;
 }
+.text-red {
+  color: red;
+}
+.text-blue {
+  color: blue;
+}
+
+/* student-form */
+
+.student-form {
+  width: 350px;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.student-form label {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.student-form input {
+  font-size: 15px;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.student-form input:focus {
+  border: 1.2px solid #42b72a;
+}
+
+.student-form button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  align-self: center;
+  background: #1877f2;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.student-form button:hover {
+  background: #196fe0;
+}
+
+.student-list {
+  margin-top: 20px;
+}
+
+.student-list div {
+  margin: 10px 0;
+}
+
+.student-list .text-blue {
+  color: blue;
+}
+
+.student-list .text-red {
+  color: #e74c3c;
+}

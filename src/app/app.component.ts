@@ -3,11 +3,22 @@ import { RouterOutlet } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { EmloyeeComponent } from './emloyee/emloyee.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UserComponent, ContactComponent, LoginComponent],
+  imports: [
+    RouterOutlet,
+    UserComponent,
+    ContactComponent,
+    LoginComponent,
+    CommonModule,
+    FormsModule,
+    EmloyeeComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -17,6 +28,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   private _address: string = 'Vinhomes';
   //thang chay dau tien
   //DI
+  isHiden: boolean = true;
+
   constructor() {
     console.log('Tao la constructor');
   }

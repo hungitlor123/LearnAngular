@@ -7,13 +7,13 @@ User component
 <input type="text" [value]="email" />
 <br />
 <!-- Binding data bang dau [] -->
-<input type="text" [(ngModel)]="student.name" />
+<label for="">Name</label><input type="text" [(ngModel)]="student.name" />
 <br />
 <!-- Binding data bang dau [] -->
-<input type="text" [(ngModel)]="student.age" />
+<label for="">Age</label><input type="text" [(ngModel)]="student.age" />
 <br />
 <!-- Binding data bang dau [] -->
-<input type="text" [(ngModel)]="student.address" />
+<label for="">Address</label><input type="text" [(ngModel)]="student.address" />
 
 <!-- Evenbinding -->
 <button (click)="logEmailValue()">Show email</button>
