@@ -1,35 +1,34 @@
-<div>
-  <h2>Tao may thang em</h2>
-  <form [formGroup]="createEmployeeForm">
+<div class="employee-form-container">
+  <h2>Tạo nhân viên</h2>
+  <form [formGroup]="createEmployeeForm" class="employee-form">
     <mat-form-field class="example-full-width">
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" placeholder="Input Name Bro" />
+      <mat-label>Tên</mat-label>
+      <input matInput formControlName="name" placeholder="Nhập tên" />
     </mat-form-field>
 
     <br />
 
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" placeholder="Input Email Bro" />
+      <input matInput formControlName="email" placeholder="Nhập email" />
     </mat-form-field>
 
     <br />
 
     <mat-form-field class="example-full-width">
-      <mat-label>Address</mat-label>
+      <mat-label>Địa chỉ</mat-label>
+      <input matInput formControlName="address" placeholder="Nhập địa chỉ" />
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Số điện thoại</mat-label>
       <input
         matInput
-        formControlName="address"
-        placeholder="Input Address Bro"
+        formControlName="phone"
+        placeholder="Nhập số điện thoại"
       />
-    </mat-form-field>
-
-    <br />
-
-    <mat-form-field class="example-full-width">
-      <mat-label>Phone</mat-label>
-
-      <input matInput formControlName="phone" placeholder="Input Phone Bro" />
       <mat-hint
         style="color: red"
         *ngIf="
@@ -37,9 +36,9 @@
           createEmployeeForm.get('phone')?.touched
         "
       >
-        <span *ngIf="createEmployeeForm.get('phone')?.errors?.['required']"
-          >Số điện thoại là bắt buộc.</span
-        >
+        <span *ngIf="createEmployeeForm.get('phone')?.errors?.['required']">
+          Số điện thoại là bắt buộc.
+        </span>
         <span *ngIf="createEmployeeForm.get('phone')?.errors?.['invalidPhone']">
           Số điện thoại không hợp lệ. Số điện thoại phải gồm 10 chữ số và bắt
           đầu bằng 03, 05, 07, hoặc 09.
@@ -50,22 +49,24 @@
     <br />
 
     <mat-form-field class="example-full-width">
-      <mat-label>Salary</mat-label>
+      <mat-label>Lương</mat-label>
       <input
         type="number"
         matInput
         formControlName="salary"
-        placeholder="Input Salary Bro"
+        placeholder="Nhập lương"
       />
     </mat-form-field>
 
     <br />
+
     <mat-form-field>
-      <mat-label>Birth Day</mat-label>
+      <mat-label>Ngày sinh</mat-label>
       <input
         matInput
         [matDatepicker]="birthdayPicker"
         formControlName="birthday"
+        placeholder="Chọn ngày sinh"
       />
       <mat-error *ngIf="createEmployeeForm.get('birthday')?.hasError('minAge')">
         Bạn phải ít nhất 16 tuổi.
@@ -83,11 +84,12 @@
     <br />
 
     <mat-form-field>
-      <mat-label>Join Date</mat-label>
+      <mat-label>Ngày tham gia</mat-label>
       <input
         matInput
         [matDatepicker]="joindatePicker"
         formControlName="joindate"
+        placeholder="Chọn ngày tham gia"
       />
       <mat-error
         *ngIf="createEmployeeForm.get('joindate')?.hasError('invalidJoinDate')"
@@ -105,15 +107,106 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #joindatePicker></mat-datepicker>
     </mat-form-field>
+
     <br />
+
+    <button
+      (click)="createEmployee()"
+      [disabled]="loading"
+      mat-raised-button
+      class="pushable"
+    >
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front"> Tạo </span>
+    </button>
+
+    <div *ngIf="loading">
+      <div aria-label="Loading..." role="status" class="loader">
+        <svg class="icon" viewBox="0 0 256 256">
+          <line
+            x1="128"
+            y1="32"
+            x2="128"
+            y2="64"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="195.9"
+            y1="60.1"
+            x2="173.3"
+            y2="82.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="224"
+            y1="128"
+            x2="192"
+            y2="128"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="195.9"
+            y1="195.9"
+            x2="173.3"
+            y2="173.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="128"
+            y1="224"
+            x2="128"
+            y2="192"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="60.1"
+            y1="195.9"
+            x2="82.7"
+            y2="173.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="32"
+            y1="128"
+            x2="64"
+            y2="128"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+          <line
+            x1="60.1"
+            y1="60.1"
+            x2="82.7"
+            y2="82.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="24"
+          ></line>
+        </svg>
+        <span class="loading-text">Loading...</span>
+      </div>
+    </div>
   </form>
-  <button (click)="createEmloyee()" mat-raised-button>Create</button>
 
   <h2>Danh sách nhân viên</h2>
-  <table mat-table [dataSource]="employees" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <th mat-header-cell *matHeaderCellDef>Tên</th>
       <td mat-cell *matCellDef="let employee">{{ employee.name }}</td>
     </ng-container>
 
@@ -125,25 +218,25 @@
 
     <!-- Address Column -->
     <ng-container matColumnDef="address">
-      <th mat-header-cell *matHeaderCellDef>Address</th>
+      <th mat-header-cell *matHeaderCellDef>Địa chỉ</th>
       <td mat-cell *matCellDef="let employee">{{ employee.address }}</td>
     </ng-container>
 
     <!-- Phone Column -->
     <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef>Phone</th>
+      <th mat-header-cell *matHeaderCellDef>Số điện thoại</th>
       <td mat-cell *matCellDef="let employee">{{ employee.phone }}</td>
     </ng-container>
 
     <!-- Salary Column -->
     <ng-container matColumnDef="salary">
-      <th mat-header-cell *matHeaderCellDef>Salary</th>
+      <th mat-header-cell *matHeaderCellDef>Lương</th>
       <td mat-cell *matCellDef="let employee">{{ employee.salary }}</td>
     </ng-container>
 
     <!-- Birthday Column -->
     <ng-container matColumnDef="birthday">
-      <th mat-header-cell *matHeaderCellDef>Birthday</th>
+      <th mat-header-cell *matHeaderCellDef>Ngày sinh</th>
       <td mat-cell *matCellDef="let employee">
         {{ employee.birthday | date : "MM/dd/yyyy" }}
       </td>
@@ -151,7 +244,7 @@
 
     <!-- Join Date Column -->
     <ng-container matColumnDef="joindate">
-      <th mat-header-cell *matHeaderCellDef>Join Date</th>
+      <th mat-header-cell *matHeaderCellDef>Ngày tham gia</th>
       <td mat-cell *matCellDef="let employee">
         {{ employee.joindate | date : "MM/dd/yyyy" }}
       </td>

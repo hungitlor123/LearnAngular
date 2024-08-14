@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { minAgeValidator } from '../../validators/birthday.validator';
 import { joinDateValidator } from '../../validators/joindate.valitor';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'emloyee',
@@ -36,41 +37,16 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     //table
     MatTableModule,
+    //
+    MatProgressBarModule,
   ],
 })
 export class EmloyeeComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) {}
 
-  employees: Emloyee[] = [
-    {
-      name: 'Nguyen Van A',
-      email: 'nguyenvana@gmail.com',
-      address: '123 Le Loi, Ho Chi Minh City',
-      phone: 907123456,
-      salary: '15000000',
-      birthday: '1990-01-15',
-      joindate: '2023-05-01',
-    },
-    {
-      name: 'Tran Thi B',
-      email: 'tranthib@gmail.com',
-      address: '456 Nguyen Trai, Ha Noi',
-      phone: 905654321,
-      salary: '20000000',
-      birthday: '1985-08-20',
-      joindate: '2022-03-10',
-    },
-    {
-      name: 'Le Van C',
-      email: 'levanc@gmail.com',
-      address: '789 Le Duan, Da Nang',
-      phone: 903112233,
-      salary: '18000000',
-      birthday: '1992-07-10',
-      joindate: '2023-02-20',
-    },
-  ];
+  employees: Emloyee[] = [];
   createEmployeeForm: FormGroup;
+  dataSource = new MatTableDataSource<Emloyee>(this.employees);
   displayedColumns: string[] = [
     'name',
     'email',
@@ -80,6 +56,7 @@ export class EmloyeeComponent implements OnInit {
     'birthday',
     'joindate',
   ];
+  loading: boolean = false;
   ngOnInit(): void {
     this.initcreateEmployeeForm();
   }
@@ -95,12 +72,17 @@ export class EmloyeeComponent implements OnInit {
       joindate: [null, [Validators.required, joinDateValidator()]],
     });
   }
-  public createEmloyee() {
+  public createEmployee() {
     if (this.createEmployeeForm.valid) {
-      console.log(this.createEmployeeForm.value);
-      this.employees.push(this.createEmployeeForm.value);
-      this.dataSource.data = [...this.employees];
+      this.loading = true;
+
+      setTimeout(() => {
+        console.log(this.createEmployeeForm.value);
+        this.employees.push(this.createEmployeeForm.value);
+        this.dataSource.data = this.employees;
+
+        this.loading = false;
+      }, 2000);
     }
   }
-  public dataSource = new MatTableDataSource<Emloyee>(this.employees);
 }
