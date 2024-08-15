@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EmloyeeComponent } from './emloyee/emloyee.component';
+import { AnimalComponent } from './animal/animal.component';
+import { ProductComponent } from './product/product.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,8 @@ import { EmloyeeComponent } from './emloyee/emloyee.component';
     CommonModule,
     FormsModule,
     EmloyeeComponent,
+    AnimalComponent,
+    ProductComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

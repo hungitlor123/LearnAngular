@@ -1,0 +1,17 @@
+<div>
+  <span>Bay gio la: </span>
+  {{ dateTime | date : "full" }}
+</div>
+
+<div>
+  <span>Voi muc luong: </span>
+  $ {{ salary | number : "0.2-2" }} VNĐ
+</div>
+
+<ng-container *ngFor="let item of animals">
+  <div>{{ item.name }}</div>
+  <div>{{ item.age }}</div>
+  <div [class]="item.status | statusColor">
+    {{ item.status | locale }}
+  </div>
+</ng-container>

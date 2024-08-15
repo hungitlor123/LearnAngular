@@ -1,0 +1,4 @@
+<ng-container *ngFor="let item of products">
+  <button (click)="deleteProduct(item.id)">Delete</button> {{ item.name }}
+  <br />
+</ng-container>
