@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { EmloyeeComponent } from './emloyee/emloyee.component';
 import { AnimalComponent } from './animal/animal.component';
 import { ProductComponent } from './product/product.component';
+import { ClockComponent } from './clock/clock.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { ProductComponent } from './product/product.component';
     EmloyeeComponent,
     AnimalComponent,
     ProductComponent,
+    ClockComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
