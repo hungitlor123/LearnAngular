@@ -1,0 +1,18 @@
+<table style="border: black solid 1px">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <ng-container *ngFor="let student of students">
+    <tr>
+      <td>{{ student.name }}</td>
+      <td>{{ student.age }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.phone }}</td>
+    </tr>
+  </ng-container>
+</table>
+
+<button (click)="createStudent()">Create Student</button>

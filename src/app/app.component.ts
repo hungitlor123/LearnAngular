@@ -9,6 +9,7 @@ import { EmloyeeComponent } from './emloyee/emloyee.component';
 import { AnimalComponent } from './animal/animal.component';
 import { ProductComponent } from './product/product.component';
 import { ClockComponent } from './clock/clock.component';
+import { StudentComponent } from './student/student.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { ClockComponent } from './clock/clock.component';
     AnimalComponent,
     ProductComponent,
     ClockComponent,
+    StudentComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
