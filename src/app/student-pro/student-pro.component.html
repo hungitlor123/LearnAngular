@@ -1,0 +1,23 @@
+<table style="border: black solid 1px">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Delete</th>
+  </tr>
+  <ng-container *ngIf="students$ | async as students">
+    <ng-container *ngFor="let student of students">
+      <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.phone }}</td>
+        <td>
+          <!-- <button (click)="deleteStudent(student.id)">Delete</button> -->
+        </td>
+      </tr>
+    </ng-container>
+  </ng-container>
+  <button (click)="createStudent()">Add student</button>
+</table>

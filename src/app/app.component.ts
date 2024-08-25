@@ -10,6 +10,7 @@ import { AnimalComponent } from './animal/animal.component';
 import { ProductComponent } from './product/product.component';
 import { ClockComponent } from './clock/clock.component';
 import { StudentComponent } from './student/student.component';
+import { StudentProComponent } from './student-pro/student-pro.component';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ import { StudentComponent } from './student/student.component';
     ProductComponent,
     ClockComponent,
     StudentComponent,
+    StudentProComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -50,6 +52,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   //khi tao da duoc render ra thanh cong
   ngAfterViewInit(): void {
-    console.warn('Trong khu vuc render ra template');
+    // console.warn('Trong khu vuc render ra template');
   }
 }
