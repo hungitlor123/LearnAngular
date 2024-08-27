@@ -1,0 +1,9 @@
+<h2>Student List</h2>
+<ng-container *ngIf="students$ | async as students">
+  <ng-container *ngFor="let student of students">
+    <div>
+      {{ student.name }}
+      <button [routerLink]="[student.id]">View Detail</button>
+    </div>
+  </ng-container>
+</ng-container>

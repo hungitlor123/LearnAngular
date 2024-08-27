@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 170px; /* Giảm chiều rộng của sidebar */
+  background-color: #2c3e50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 15px; /* Giảm padding */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fixes the sidebar to the side */
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.sidebar h2 {
+  font-size: 1.2em; /* Giảm kích thước chữ */
+  margin-bottom: 15px; /* Giảm khoảng cách dưới */
+  color: #ecf0f1;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 10px; /* Giảm khoảng cách giữa các mục */
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #bdc3c7;
+  font-size: 1em; /* Giảm kích thước chữ */
+  display: block;
+  padding: 8px 10px; /* Giảm padding trong mỗi mục */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #34495e;
+  color: #ecf0f1;
+}
+
+.sidebar nav ul li a.active {
+  background-color: #1abc9c;
+  color: white;
+}
+
+.content {
+  margin-left: 200px; /* Cập nhật khoảng cách theo chiều rộng sidebar mới */
+  padding: 20px;
+  background-color: #ecf0f1;
+  overflow-y: auto;
+  flex-grow: 1;
+}

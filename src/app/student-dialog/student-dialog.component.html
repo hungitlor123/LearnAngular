@@ -1,0 +1,85 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <!-- Name Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        [formControlName]="'name'"
+        placeholder="Enter student's name"
+      />
+      <mat-error
+        *ngIf="
+          studentForm.controls['name'].invalid &&
+          studentForm.controls['name'].touched
+        "
+      >
+        Name is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Age Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Age</mat-label>
+      <input
+        matInput
+        type="number"
+        [formControlName]="'age'"
+        placeholder="Enter student's age"
+      />
+      <mat-error
+        *ngIf="
+          studentForm.controls['age'].invalid &&
+          studentForm.controls['age'].touched
+        "
+      >
+        Age is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Email Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        [formControlName]="'email'"
+        placeholder="Enter student's email"
+      />
+      <mat-error
+        *ngIf="
+          studentForm.controls['email'].invalid &&
+          studentForm.controls['email'].touched
+        "
+      >
+        Please enter a valid email.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Phone Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Phone</mat-label>
+      <input
+        matInput
+        type="tel"
+        [formControlName]="'phone'"
+        placeholder="Enter student's phone number"
+      />
+      <mat-error
+        *ngIf="
+          studentForm.controls['phone'].invalid &&
+          studentForm.controls['phone'].touched
+        "
+      >
+        Phone number is required.
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" type="submit">
+      {{ data ? "Update" : "Create" }}
+    </button>
+  </mat-dialog-actions>
+</form>
